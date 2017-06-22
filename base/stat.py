@@ -115,4 +115,60 @@ print('-------------')
 #     # logging.error(e)
 #     logging.exception("error message")
 
-list(range(3,10))
+list(range(3, 10))
+
+
+def fib(n):
+    a, b = 0, 1
+    while b < n:
+        print(a, end=' ')
+        a, b = b, a + b
+
+
+def fib2(n):
+    a, b = 0, 1
+    result = []
+    while b < n:
+        result.append(a)
+        a, b = b, a + b
+    return result
+
+
+fib(10)
+print(*fib2(10))
+
+
+def make_inc(n):
+    """
+    study summary.
+    
+    :param n: int
+    :return: function
+    """
+    return lambda x: x + n
+
+
+def make_inc2(n):
+    """study summary.
+
+    :param n: int
+    :return: function
+    """
+    return lambda x: x + n
+
+
+func1 = make_inc(10)
+print(func1(1))
+print(func1(2))
+
+pairs = [(12, "hello"), (21, "world"), (5, "libai")]
+pairs.sort(key=lambda pair: pair[0])
+print(pairs)
+
+
+def f(ham: str, eggs: str = 'eggs') -> str:
+    print("annotations:", f.__annotations__)
+    print("argument:", ham, eggs)
+    return ham + ' and ' + eggs
+
+f('spam')
