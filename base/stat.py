@@ -171,4 +171,26 @@ def f(ham: str, eggs: str = 'eggs') -> str:
     print("argument:", ham, eggs)
     return ham + ' and ' + eggs
 
+
 f('spam')
+
+import collections
+
+lst1 = [22, 33, 12, 5, 7, 16, 21]
+queue = collections.deque(lst1)
+item = queue.popleft()
+print(item)
+
+lst2 = list(map(lambda x: x ** 2, range(10)))
+
+lst3 = [(x, y) for x in [1, 2, 3] for y in [2, 3, 4] if x != y]
+
+matrix=[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+
+[[row[i] for row in matrix] for i in range(4)]
+
+
