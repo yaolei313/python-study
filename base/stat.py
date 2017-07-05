@@ -193,4 +193,5 @@ matrix=[
 
 [[row[i] for row in matrix] for i in range(4)]
 
-
+dict1={'hello':'world'}
+dict1.keys()
