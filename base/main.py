@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import urllib.request
 
-#url = "https://www.chiphell.com/portal.php"
+# url = "https://www.chiphell.com/portal.php"
 url = "http://www.baidu.com/"
 
 request = urllib.request.Request(url)
@@ -23,3 +23,4 @@ print(type(response))
 print(response.geturl())
 print(response.info())
 print(response.getcode())
+
