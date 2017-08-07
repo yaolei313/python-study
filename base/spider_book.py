@@ -57,6 +57,9 @@ hp.close()
 slinks = [i if i.startswith("http") else url1 + i for i in hp.links]
 print(slinks)
 
-os.makedirs(r'd:\Work\temp')
+if not os.path.isdir(r'd:\Work\temp'):
+    os.makedirs(r'd:\Work\temp')
 print(os.getcwd())
+os.chdir(r'd:\Work\temp')
+
 #shutil
