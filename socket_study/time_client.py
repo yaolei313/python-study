@@ -16,6 +16,9 @@ while True:
         break
     cli_socket.send(send_data.encode('utf-8'))
     recv_data = cli_socket.recv(BUF_SIZE)
-    print('receive data.', recv_data)
+    if not recv_data:
+        print('receive data.', recv_data)
+    else:
+        print('nothing receive')
 
 cli_socket.close()
