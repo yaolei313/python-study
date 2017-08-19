@@ -51,17 +51,22 @@ def match(word, dict, max_pattern_len=10):
     result = []
     if not word:
         return result
-    word_length = len(word)
-    m = min(word_length, max_pattern_len)
-    p1 = word_length
-    while p1 != 0:
-        p2 = max(p1 - m, 0)
-        sub_word = word[p2, p1]
-        while sub_word != '' and not dict.find(sub_word):
-            p2 = p2 + 1
-            sub_word = word[p2, p1]
-        result.append(sub_word)
-        p1 = p2 - 1
+
+    p1 = len(word)
+    while p1 > 0:
+        i = min(max_pattern_len, p1)
+        while i >= 1:
+            sub_word = word[p1 - i:p1]
+            if i == 1:
+                result.append(sub_word)
+                p1 -= 1
+                break
+            elif dict.find(sub_word):
+                result.append(sub_word)
+                p1 = p1 - i
+                break
+            i -= 1
+
     return result
 
 

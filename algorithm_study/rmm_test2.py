@@ -8,10 +8,6 @@
 import sys
 import hmmseg
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
-
 def gen_dict(dictfile):
     print("Building dictionary...")
     dictionary_seg = {}
