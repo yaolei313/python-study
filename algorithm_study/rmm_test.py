@@ -78,4 +78,5 @@ if __name__ == '__main__':
     mydict.add("公司")
     mydict.add("和服")
     rl = match(content, mydict, 4)
+    rl.reverse()
     print(rl)

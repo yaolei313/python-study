@@ -4,7 +4,6 @@
 import mysql.connector
 import gzip
 from urllib import request
-from urllib import response
 from mysql.connector import errorcode
 
 req_headers = {
