@@ -19,10 +19,14 @@ SK = 'dC8mz04FxwlSRjr4IRuMpMZbGxcfjE2F'
 def construct_param_dict(city):
     return {
         'query': '汽车站',
+        'tag': '交通设施;长途汽车站',
+        'scope': '2',
         'coord_type': '1',
         'city_limit': 'true',
         'region': city,
-        'output': 'json'
+        'output': 'json',
+        'page_size': '20'  # ,
+        # 'page_num': '0'
     }
 
 
@@ -57,5 +61,5 @@ def spider_division(lat, lng):
 
 
 if __name__ == "__main__":
-    spider_station('淄博市')
-    spider_division(lat=36.792133,lng=118.008456)
+    spider_station('广州市')
+    spider_division(lat=36.792133, lng=118.008456)

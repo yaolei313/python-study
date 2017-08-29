@@ -48,11 +48,11 @@ with urllib.request.urlopen(reqObj, timeout=2000) as rsp:
     text = rsp.read()
     if rsp.info().get('Content-Encoding') == 'gzip':
         print('is gzip')
-        text = gzip.decompress(text)
-    print(str(text))
+        text = gzip.decompress(text).decode('UTF-8')
+    print(text)
 
 hp = MyHtmlParser()
-hp.feed(str(text))
+hp.feed(text)
 hp.close()
 slinks = [i if i.startswith("http") else url1 + i for i in hp.links]
 print(slinks)
