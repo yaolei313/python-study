@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import os
+
 str1 = """I'm from \
 beijing
 My name is yaolei
@@ -49,3 +51,8 @@ print('====================')
 
 for i in range(10):
     print(i, end=' ')
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(__file__)
+print(BASE_DIR)
