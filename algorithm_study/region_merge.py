@@ -19,36 +19,30 @@ class Solution:
         elif len(intervals) == 1:
             return intervals
 
-        lst = []
-        for i in range(len(intervals)):
-            lst.append((intervals[i].start, i))
-            lst.append((intervals[i].end, i))
+        self.quickSort(intervals, 0, len(intervals) - 1, lambda x: x.start)
 
-        print(lst)
-
-        self.quickSort(lst, 0, len(lst) - 1, lambda x: x[0])
-
-        print(lst)
+        for interval in intervals:
+            print('%s' % interval, end='')
+        print()
 
         rst = []
 
-        # 处理中region集合
-        region_no_set = set()
-        for i in range(len(lst)):
-            if len(region_no_set) == 0:
-                region_no_set.add(i)
-                region_left = lst[i][0]
+        region_left = None
+        region_right = None
+        for t1 in intervals:
+            if region_left is None:
+                region_left = t1.start
+                region_right = t1.end
                 continue
 
-            cur_region_no = lst[i][1]
-            if cur_region_no in region_no_set:
-                if len(region_no_set) == 1:
-                    region_right = lst[i][0]
-                    rst.append(Interval(region_left, region_right))
-                else:
-                    region_no_set.remove(cur_region_no)
+            if region_right >= t1.start:
+                region_right = max(region_right, t1.end)
             else:
-                region_no_set.add(cur_region_no)
+                rst.append(Interval(region_left, region_right))
+                region_left = t1.start
+                region_right = t1.end
+        if region_left is not None:
+            rst.append(Interval(region_left, region_right))
         return rst
 
     def quickSort(self, lst, l, r, func):
@@ -56,21 +50,22 @@ class Solution:
             return
 
         key_idx = l
-        key = func(lst[l])
+        key = lst[l]
+        compare_key = func(lst[l])
         i, j = l, r
         while i < j:
-            while func(lst[j]) >= key and i < j:
+            while func(lst[j]) >= compare_key and i < j:
                 j -= 1
             if i < j:
                 lst[key_idx] = lst[j]
 
-            while func(lst[i]) <= key and i < j:
+            while func(lst[i]) <= compare_key and i < j:
                 i += 1
             if i < j:
                 lst[j] = lst[i]
 
             key_idx = i
-        lst[key_idx] = lst[l]
+        lst[key_idx] = key
         self.quickSort(lst, l, key_idx - 1, func)
         self.quickSort(lst, key_idx + 1, r, func)
 
@@ -103,7 +98,8 @@ if __name__ == "__main__":
     t = Solution()
     input_grid = [Interval(1, 3), Interval(2, 6), Interval(8, 10), Interval(15, 18)]
     t_result = t.merge(input_grid)
-    print(t_result)
+    for item in t_result:
+        print('%s' % item, end='')
 
     # input_array = [2, 5, 33, 2, 17, 5, 2]
     # t.quickSort(input_array, 0, len(input_array) - 1, lambda x: x)
