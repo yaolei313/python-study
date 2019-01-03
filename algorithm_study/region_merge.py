@@ -24,7 +24,11 @@ class Solution:
             lst.append((intervals[i].start, i))
             lst.append((intervals[i].end, i))
 
+        print(lst)
+
         self.quickSort(lst, 0, len(lst) - 1, lambda x: x[0])
+
+        print(lst)
 
         rst = []
 
@@ -55,14 +59,18 @@ class Solution:
         key = func(lst[l])
         i, j = l, r
         while i < j:
+            while func(lst[j]) >= key and i < j:
+                j -= 1
+            if i < j:
+                lst[key_idx] = lst[j]
+
             while func(lst[i]) <= key and i < j:
                 i += 1
-            while func(lst[j]) > key and i < j:
-                j -= 1
-            lst[key_idx] = lst[j]
-            lst[j] = lst[i]
+            if i < j:
+                lst[j] = lst[i]
+
             key_idx = i
-        lst[key_idx] = key
+        lst[key_idx] = lst[l]
         self.quickSort(lst, l, key_idx - 1, func)
         self.quickSort(lst, key_idx + 1, r, func)
 
