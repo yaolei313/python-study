@@ -19,7 +19,8 @@ class Solution:
         elif len(intervals) == 1:
             return intervals
 
-        self.quickSort(intervals, 0, len(intervals) - 1, lambda x: x.start)
+        # self.quickSort(intervals, 0, len(intervals) - 1, lambda x: x.start)
+        intervals.sort(key=lambda x: x.start)
 
         for interval in intervals:
             print('%s' % interval, end='')
@@ -96,7 +97,7 @@ class Solution:
 
 if __name__ == "__main__":
     t = Solution()
-    input_grid = [Interval(1, 3), Interval(2, 6), Interval(8, 10), Interval(15, 18)]
+    input_grid = [Interval(1, 3), Interval(8, 10), Interval(2, 6), Interval(15, 18)]
     t_result = t.merge(input_grid)
     for item in t_result:
         print('%s' % item, end='')

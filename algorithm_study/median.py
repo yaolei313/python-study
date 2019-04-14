@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 class Solution:
     def findMedianSortedArrays(self, nums1, nums2):
         """
