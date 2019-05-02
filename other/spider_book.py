@@ -9,7 +9,7 @@ from scrapy.selector import Selector
 
 page_count = 12
 
-spider_url_template = "https://api-mit.sankuai.com/library/books/?%23%2Febooks=&limit=9&page={0}&type=ebook"
+spider_url_template = "https://api-mit.xxx.com/library/books/?%23%2Febooks=&limit=9&page={0}&type=ebook"
 
 req_headers = {
     'Accept': 'application/json, text/plain, */*',
@@ -19,10 +19,10 @@ req_headers = {
     'Cache-Control': 'no-cache',
     'Connection': 'keep-alive',
     'Content-Type': 'application/json;charset=UTF-8',
-    'Host': 'api-mit.sankuai.com',
-    'Origin': 'https://book.sankuai.com',
+    'Host': 'api-mit.xxx.com',
+    'Origin': 'https://book.xxx.com',
     'Pragma': 'no-cache',
-    'Referer': 'https://book.sankuai.com/',
+    'Referer': 'https://book.xxx.com/',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'
 }
 

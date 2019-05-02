@@ -37,8 +37,8 @@ qcs_headers = {
     'Accept-Encoding': 'gzip'
 }
 
-search_url = 'http://qcs.sankuai.com/api/uc/order/list.ajax?cityId&driverBiz=0&driverId=&driverMobile=&endTime=20180518%2023%3A59%3A59&orderId=099748213806666142252290000055&orderStatus&orderType=meituan&pageIndex=1&pageSize=10&payStatus&startTime=20180518%2000%3A00%3A00&userId=&userMobile='
-end_url = 'http://qcs.sankuai.com/api/uc/order/forceEndTrip.ajax?operatorId=25288&operatorName=%E5%A7%9A%E7%A3%8A&orderId=099748213806666142252290000055'
+search_url = 'http://xxx/api/uc/order/list.ajax?cityId&driverBiz=0&driverId=&driverMobile=&endTime=20180518%2023%3A59%3A59&orderId=099748213806666142252290000055&orderStatus&orderType=meituan&pageIndex=1&pageSize=10&payStatus&startTime=20180518%2000%3A00%3A00&userId=&userMobile='
+end_url = 'http://xxx/api/uc/order/forceEndTrip.ajax?operatorId=25288&operatorName=%E5%A7%9A%E7%A3%8A&orderId=099748213806666142252290000055'
 reqObj = urllib.request.Request(url=search_url, headers=qcs_headers, method='GET')
 with urllib.request.urlopen(reqObj, timeout=2000) as rsp:
     if rsp.getcode() != 200:
